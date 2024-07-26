@@ -1,0 +1,36 @@
+.add-to-cart {
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff8c00;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.back-to-shop {
+    background-color: rgb(8, 180, 122);
+    text-decoration: none;
+}
+
+.remove-from-cart {
+    background-color: rgb(232, 67, 67);
+    margin-top: 2em;
+}
+
+.add-to-cart:hover {
+    background-color: #de7b02;
+}
+
+.remove-from-cart:hover {
+    background-color: rgb(204, 0, 0);
+}
+
+.back-to-shop:hover {
+    background-color: rgb(8, 136, 93);
+}
+
+.add-to-cart:hover, .remove-from-cart:hover, .back-to-shop:hover {
+    transition: 0.5s ease;
+}
