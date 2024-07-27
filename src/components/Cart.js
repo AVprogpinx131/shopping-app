@@ -25,48 +25,47 @@ function Cart() {
               gap: "100px",
               marginTop: "2em",
             }}
+            className="items-wrapper"
           >
-            <div>
-              <img
-                src={item.image}
-                alt={item.title}
-                style={{ width: "200px", marginBottom: "2em" }}
-              />
+            <div className="image-container">
+              <img src={item.image} alt={item.title} className="item-image"/>
             </div>
-            <div>
+            <div className="items-container">
               <h2>{item.title}</h2>
-              <div
-                style={{
-                  background: "#AEAEAE",
-                  width: "100px",
-                  padding: "0.8em 0",
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "15px",
-                  borderRadius: "50px",
-                }}
-              >
-                <button
+              <div className="quantity-changer">
+                <div
                   style={{
+                    background: "#AEAEAE",
+                    width: "100px",
+                    padding: "0.8em 0",
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: "15px",
                     borderRadius: "50px",
-                    border: "none",
-                    width: "25px",
                   }}
-                  onClick={() => updateQuantity(item, item.quantity - 1)}
                 >
-                  -
-                </button>
-                <span>{item.quantity}</span>
-                <button
-                  style={{
-                    borderRadius: "50px",
-                    border: "none",
-                    width: "25px",
-                  }}
-                  onClick={() => updateQuantity(item, item.quantity + 1)}
-                >
-                  +
-                </button>
+                  <button
+                    style={{
+                      borderRadius: "50px",
+                      border: "none",
+                      width: "25px",
+                    }}
+                    onClick={() => updateQuantity(item, item.quantity - 1)}
+                  >
+                    -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    style={{
+                      borderRadius: "50px",
+                      border: "none",
+                      width: "25px",
+                    }}
+                    onClick={() => updateQuantity(item, item.quantity + 1)}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
               <div>
                 <button
@@ -85,7 +84,7 @@ function Cart() {
         </p>
       )}
       {cartItems.length > 0 && (
-        <p style={{ fontSize: "20px", marginBottom: "3em" }}>
+        <p style={{ fontSize: "20px", margin: "3em 0" }}>
           Total Price: ${totalPrice.toFixed(2)}
         </p>
       )}

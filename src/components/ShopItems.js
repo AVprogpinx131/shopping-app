@@ -4,6 +4,7 @@ import Select from "react-select";
 import { FaCartShopping } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../CartContext";
+import { Link } from "react-router-dom";
 import "./Shopping.css";
 
 function ShopItems() {
@@ -61,21 +62,24 @@ function ShopItems() {
           position: "relative",
         }}
       >
-        <Select
-          options={options}
-          styles={{
-            control: (baseStyle) => ({
-              ...baseStyle,
-              width: "400px",
-              height: "50px",
-              fontSize: "20px",
-              borderRadius: "10px",
-            }),
-          }}
-          placeholder="Search for a product..."
-          onInputChange={handleInputChange}
-          onChange={handleSelectChange}
-        />
+        <div className="search-bar-container">
+          <div>
+            <Select
+              options={options}
+              placeholder="Search for a product..."
+              onInputChange={handleInputChange}
+              onChange={handleSelectChange}
+            />
+            <div className="cart-link">
+              <Link
+                to="/shopping-app/cart"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Cart
+              </Link>
+            </div>
+          </div>
+        </div>
         <div
           style={{
             position: "absolute",
@@ -91,20 +95,10 @@ function ShopItems() {
               width: "25px",
               height: "25px",
             }}
+            className="cart-icon"
           />
           {cartItems.length > 0 && (
-            <div
-              style={{
-                background: "white",
-                width: "20px",
-                height: "20px",
-                borderRadius: "50px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: "0 0 1em .3em",
-              }}
-            >
+            <div className="cart-count">
               <span
                 style={{
                   color: "black",
@@ -128,23 +122,25 @@ function ShopItems() {
               display: "flex",
               gap: "100px",
               marginTop: "5em",
-              paddingRight: "3em",
             }}
+            className="items-wrapper"
           >
-            <div>
+            <div className="image-container">
               <img
                 src={item.image}
                 alt={item.title}
-                style={{ width: "200px", marginLeft: "3em" }}
+                style={{ width: "200px" }}
               />
             </div>
-            <div>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <p>${item.price}</p>
-              <button className="add-to-cart" onClick={() => addToCart(item)}>
-                Add to Cart
-              </button>
+            <div className="items-container">
+              <div>
+                <h2>{item.title}</h2>
+                <p className="item-desc">{item.description}</p>
+                <p>${item.price}</p>
+                <button className="add-to-cart" onClick={() => addToCart(item)}>
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         ))
